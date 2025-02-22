@@ -18,7 +18,11 @@
 
 {% for post in posts %}
 <div style="border: solid 1px black;">
+    {% if post.author.username == None %}
+    <p>Deleted User</p>
+    {% else %}
     <p>{{ post.author.username }}</p>
+    {% endif %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
 </div>
