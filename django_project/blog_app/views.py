@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from .models import Post
+from django.utils import timezone
 
 # Create your views here.
 def index(request):
@@ -75,9 +76,10 @@ def create_post(request):
         author = request.user
         title = request.POST.get('title').strip()
         content = request.POST.get('content').strip()
+        date = timezone.now()
 
         if title and content:
-            Post.objects.create(author=author, title=title, content=content)
+            Post.objects.create(author=author, title=title, content=content, date=date)
             messages.info(request, 'Posted!')
             return redirect('index')
 
