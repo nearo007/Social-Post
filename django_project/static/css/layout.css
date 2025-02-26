@@ -23,6 +23,7 @@ body {
     background-color: rgb(245, 245, 245);
     font-size: 30px;
     font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .img-user-profile {
@@ -30,6 +31,7 @@ body {
     width: 60px;
     height: 60px;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .div-content {
