@@ -1,32 +1,38 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% extends "layout.html" %}
 
-<h1>Twitter 2</h1>
+{% block extrahead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username}}!</h1>
-{% endif %}
-<a href="{% url 'register' %}"><button>Register</button></a>
+{% block content %}
+    <h1>Twitter 2</h1>
 
-{% if user.is_authenticated %}
-<a href="{% url 'logout' %}"><button>Logout</button></a>
-{% else %}
-<a href="{% url 'login' %}"><button>Login</button></a>
-{% endif %}
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username}}!</h1>
+    {% endif %}
+    <a href="{% url 'register' %}"><button>Register</button></a>
 
-<a href="{% url 'create_post' %}"><button>Post!</button></a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}"><button>Logout</button></a>
+    {% else %}
+    <a href="{% url 'login' %}"><button>Login</button></a>
+    {% endif %}
 
-{% for post in posts %}
-<div class="post-div">
-    <div class="div-post-user-date">
-        {% if post.author.username == None %}
-        <p class="p-post-author">Deleted User</p>
-        {% else %}
-        <p class="p-post-author">{{ post.author.username }}</p>
-        {% endif %}
-        <p class="p-post-date">{{ post.date }}</p>
+    <a href="{% url 'create_post' %}"><button>Post!</button></a>
+
+    {% for post in posts %}
+    <div class="post-div">
+        <div class="div-post-user-date">
+            {% if post.author.username == None %}
+            <p class="p-post-author">Deleted User</p>
+            {% else %}
+            <p class="p-post-author">{{ post.author.username }}</p>
+            {% endif %}
+            <p class="p-post-date">{{ post.date }}</p>
+        </div>
+        <h1 class="h1-post-title">{{ post.title }}</h1>
+        <p "p-post-content">{{ post.content }}</p>
     </div>
-    <h1 class="h1-post-title">{{ post.title }}</h1>
-    <p "p-post-content">{{ post.content }}</p>
-</div>
-{% endfor %}
+    {% endfor %}
+{% endblock %}

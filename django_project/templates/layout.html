@@ -1,3 +1,26 @@
-{% block header %}
-<div class="div-header"></div>
-{% endblock %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    {% block extrahead %}
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+    <div class="div-header">
+        <p>Twitter 2</p>
+        <img class="img-user-profile" src="{% static 'assets/img/user_default_profile.png' %}" alt="user_default_profile">
+    </div>
+    {% endblock %}
+    
+    <div class="div-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
