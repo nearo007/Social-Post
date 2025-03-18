@@ -35,7 +35,7 @@ def register(request):
             
             User.objects.create_user(username=username, email=email, password=password)
             messages.info(request, 'User was registred sucessfully!')
-            return redirect('register')
+            return redirect('login')
         
         else:
             messages.info(request, 'Please fill all the spaces!')

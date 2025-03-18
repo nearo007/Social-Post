@@ -12,7 +12,7 @@
     <h1>Welcome {{ user.username}}!</h1>
     {% endif %}
 
-    <a href="{% url 'create_post' %}"><button>Post!</button></a>
+    <a href="{% url 'create_post' %}"><button>Create a Post!</button></a>
 
     {% for post in posts %}
     

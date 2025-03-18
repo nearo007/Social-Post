@@ -1,3 +1,11 @@
-<p>user profile</p>
+{% extends "layout.html" %}
 
-{{ user.username }}
+{% block extrahead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    {{ user.username }}
+    <a href="{% url 'index' %}"><button>Main Page</button></a>
+{% endblock %}

@@ -1,18 +1,25 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% extends "layout.html" %}
 
-<h1>Login page</h1>
+{% block extrahead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
-{% for message in messages %}
-{{ message }}
-{% endfor %}
+{% block content %}
+    <form method="POST" action="login">
+        <h1>Login page</h1>
 
-<form method="POST" action="login">
-    {% csrf_token %}
-    <input type="username" name="username">
-    <input type="password" name="password">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
 
-    <button type="submit">Login</button>
-</form>
+        {% csrf_token %}
+        <input type="username" name="username">
+        <input type="password" name="password">
 
-<a href="{% url 'index' %}"><button>Cancel</button></a>
+        <button type="submit">Login</button>
+    </form>
+
+    <a href="{% url 'index' %}"><button>Cancel</button></a>
+
+{% endblock %}
