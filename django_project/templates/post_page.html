@@ -2,22 +2,13 @@
 
 {% block extrahead %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post_page.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Twitter 2</h1>
-
-    {% if user.is_authenticated %}
-    <h1>Welcome {{ user.username}}!</h1>
-    {% endif %}
-
-    <a href="{% url 'create_post' %}"><button>Post!</button></a>
-
-    {% for post in posts %}
-    
+    <h1>{{ post_title }}</h1>
+ 
     <div class="post-div">
-        <a href="{% url 'post_page' post_id=post.id %}">
         <div class="div-post-user-date">
             {% if post.author.username == None %}
             <p class="p-post-author">Deleted User</p>
@@ -27,10 +18,12 @@
             <p class="p-post-date">{{ post.date }}</p>
         </div>
 
+        <a href="{% url 'post_page' post_id=post.id %}">
             <h1 class="h1-post-title">{{ post.title }}</h1>
-
-        <p "p-post-content">{{ post.content|truncatewords:20 }}</p>
         </a>
+
+        <p "p-post-content">{{ post.content }}</p>
     </div>
-    {% endfor %}
+
+    <a href="{% url 'index' %}"><button>Go back</button></a>
 {% endblock %}

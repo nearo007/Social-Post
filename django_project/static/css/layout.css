@@ -21,12 +21,28 @@ body {
     
     padding: 0px 20px;
     background-color: rgb(245, 245, 245);
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 45, 87, 0.32);
 }
 
-.img-user-profile {
+.div-header a {
+    display: flex;
+}
+
+.div-header-icon-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.p-header-title {
+    margin: 20px 0;
+}
+
+.img-user-profile, .img-icon-twitter {
     margin: 0;
     width: 60px;
     height: 60px;
@@ -34,6 +50,53 @@ body {
     border-radius: 50%;
 }
 
+.img-icon-twitter {
+    margin: 0 10px 0 0;
+}
+
 .div-content {
     margin-top: 150px;
+}
+
+.div-header-sidebar {
+    display: none;
+    position: fixed;
+    top: 85px;
+    right: 5px;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    background-color: rgb(245, 245, 245);
+    width: 220px;
+    padding: 5px;
+
+    border: 2px solid rgb(199, 199, 199);
+    border-radius: 5px;
+}
+
+.div-header-sidebar.active {
+    display: flex;
+}
+
+.button-user-profile {
+    display: flex;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.div-header-sidebar button {
+    margin: 5px 0;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    font-family: Arial;
+    color: rgb(75, 75, 75);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+
 }

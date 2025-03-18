@@ -2,25 +2,43 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    {% block extrahead %}
-    {% endblock %}
-</head>
-<body>
-    {% block header %}
-    <div class="div-header">
-        <p>Twitter 2</p>
-        <img class="img-user-profile" src="{% static 'assets/img/user_default_profile.png' %}" alt="user_default_profile">
-    </div>
-    {% endblock %}
-    
-    <div class="div-content">
-        {% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+        {% block extrahead %}
         {% endblock %}
-    </div>
-</body>
+    </head>
+    <body>
+        {% block header %}
+        <div class="div-header">
+            <div class="div-header-icon-title">
+                <img class="img-icon-twitter" src="{% static 'assets/img/icon_twitter.png' %}" alt="twitter-icon">
+                <p class="p-header-title">Twitter 2</p>
+            </div>
+            <button class="button-user-profile">
+                <img class="img-user-profile" src="{% static 'assets/img/user_default_profile.png' %}" alt="user-default-profile">
+            </button>
+        </div>
+
+        <div class="div-header-sidebar">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}"><button>Logout</button></a>
+            {% else %}
+                <a href="{% url 'login' %}"><button>Sign in</button></a>
+                <a href="{% url 'register' %}"><button>Sign up</button></a>
+            {% endif%}
+                <a href=""><button>Settings</button></a>
+                <a href=""><button>Saved</button></a>
+                <a href=""><button>Buy Premium</button></a>
+        </div>
+        {% endblock %}
+        
+        <div class="div-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+    <script src="{% static 'js/sidebar_display_toggle.js' %}" defer></script>
 </html>

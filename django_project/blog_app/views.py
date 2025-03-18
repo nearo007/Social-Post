@@ -9,6 +9,7 @@ from django.utils import timezone
 # Create your views here.
 def index(request):
     posts = Post.objects.all()
+    posts = list(reversed(posts))
 
     return render(request, 'index.html', {'posts': posts})
 
@@ -89,3 +90,16 @@ def create_post(request):
     
     else:
         return render(request, 'create_post.html')
+
+@login_required(login_url='login')
+def user_profile(request):
+    return render(request, 'user_profile.html')
+
+@login_required(login_url='login')
+def post_page(request, post_id):
+    if request.method == 'GET':
+        post = Post.objects.filter(id=post_id).first()
+        return render(request, 'post_page.html', {'post': post})
+    
+    else:
+        return render(request, 'index.html')
