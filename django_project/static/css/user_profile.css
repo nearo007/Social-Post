@@ -1,0 +1,88 @@
+/* Títulos centralizados */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.div-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Botões estilizados */
+.div-content button {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+.div-content button:hover {
+    background-color: #0d8ce3;
+}
+
+/* Links que contêm botões */
+a {
+    text-decoration: none;
+}
+
+/* Container dos posts */
+.post-div {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px rgba(0, 45, 87, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+/* Informações do usuário e data */
+.div-post-user-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilo do autor e data */
+.p-post-author {
+    font-weight: bold;
+    color: rgb(0, 107, 230)
+}
+
+.p-post-date {
+    font-style: italic;
+}
+
+/* Estilo do título do post */
+.h1-post-title {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #222;
+}
+
+/* Conteúdo do post */
+.p-post-content {
+    font-size: 16px;
+    color: #444;
+}
