@@ -7,14 +7,23 @@
 
 {% block content %}
     <div class="div-user-profile">
+        <a class="a-go-back" href="{% url 'index' %}">
+            <button>
+                <img src="{% static 'assets/img/go_back_arrow.png' %}" alt="">
+            </button>
+        </a>
+        
         <div class="div-user-profile-picture">
             <img src="{% static 'assets/img/user_default_profile.png' %}" alt="User Profile Picture">
         </div>
         <div class="div-user-info">
             <p><strong>Username:</strong> {{ user.username }}</p>
             <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Posts:</strong> {{ post_count }}</p>
-            <a href="{% url 'index' %}"><button>Main Page</button></a>
+            {% if post_count != 1 %}
+                <p><strong>{{ post_count }} Posts</strong></p>
+            {% else %}
+                <p><strong>{{ post_count }} Post</strong></p>
+            {% endif %}
         </div>
     </div>
 

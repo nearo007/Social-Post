@@ -89,18 +89,25 @@ a {
 
 /* User Profile Container */
 .div-user-profile {
+    position: relative;
     font-family: 'Arial', sans-serif;
+    font-size: 20px;
     color: #333;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     background-color: #fff;
     padding: 20px 80px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 50%;
     max-width: 500px;
     margin: 20px auto;
+    margin-bottom: 60px;
+}
+
+.div-user-profile p {
+    margin: 10px 0;
 }
 
 /* User Info (Esquerda) */
@@ -123,6 +130,7 @@ a {
     overflow: hidden;
     border: 3px solid #eeeeee;
     flex-shrink: 0; /* Evita que a imagem diminua */
+    margin: 0 40px 0 0;
 }
 
 .div-user-profile-picture img {
@@ -136,15 +144,37 @@ a {
     background-color: #1DA1F2;
     color: white;
     font-size: 1rem;
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     cursor: pointer;
-    width: 150px;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
 }
 
 .div-user-info button:hover {
     background-color: #0d95e8;
+}
+
+.a-go-back {
+    margin: 0;
+    padding: 0;
+}
+
+.a-go-back button {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #1DA1F2;
+}
+
+.a-go-back button img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
 }
