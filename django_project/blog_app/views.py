@@ -94,7 +94,10 @@ def create_post(request):
 @login_required(login_url='login')
 def user_profile(request):
     posts = Post.objects.all().filter(author=request.user).order_by('-date')
-    return render(request, 'user_profile.html', {'posts': posts})
+    post_count = posts.count()
+    
+    context = {'posts': posts, 'post_count': post_count}
+    return render(request, 'user_profile.html', context)
 
 @login_required(login_url='login')
 def post_page(request, post_id):

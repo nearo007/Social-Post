@@ -6,8 +6,17 @@
 {% endblock %}
 
 {% block content %}
-    <h2>{{ user.username }}</h2>
-    <a href="{% url 'index' %}"><button>Main Page</button></a>
+    <div class="div-user-profile">
+        <div class="div-user-profile-picture">
+            <img src="{% static 'assets/img/user_default_profile.png' %}" alt="User Profile Picture">
+        </div>
+        <div class="div-user-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Posts:</strong> {{ post_count }}</p>
+            <a href="{% url 'index' %}"><button>Main Page</button></a>
+        </div>
+    </div>
 
     <h1>Your Posts</h1>
     {% for post in posts %}
