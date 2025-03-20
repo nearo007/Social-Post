@@ -1,53 +1,52 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
+.div-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
+    width: 100%;
 }
 
-/* Form container styling */
-form {
+.div-content h1 {
+    margin-top: 0;
+}
+
+.div-form {
+    position: relative;
     background-color: #fff;
-    padding: 20px;
+    padding: 50px 20px 20px 20px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     margin-bottom: 20px;
 }
 
 /* Input field styling */
-input[type="text"] {
+.input-title, .textarea-content {
     width: 100%;
-    padding: 12px;
+    height: 15px;
     margin: 10px 0;
     border: 1px solid #ccc;
+    padding: 10px 5px;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
+    margin-left: -5px;
 }
 
-input[type="text"]:focus {
+.textarea-content {
+    height: 200px;
+    resize: none;
+    font-family: Arial;
+}
+
+.input-title:focus, .textarea-content:focus {
     border-color: #1DA1F2;
 }
 
 /* Button styling */
-button {
+.div-content button {
     background-color: #1DA1F2;
     color: white;
     font-size: 1rem;
@@ -60,16 +59,18 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
-    background-color: #0d95e8;
+.div-content button:hover {
+    background-color: #0d8ce3;
 }
 
 /* Link styling for Cancel button */
 a {
     text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
-a button {
+.div-content a button {
     background-color: #ccc;
     color: #333;
     font-size: 1rem;
@@ -77,12 +78,43 @@ a button {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    width: 100%;
     margin-top: 10px;
 }
 
-a button:hover {
+.div-content a button:hover {
     background-color: #bbb;
+}
+
+.a-go-back {
+    margin: 0;
+    padding: 0;
+}
+
+.a-go-back button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    background-color: #1DA1F2 !important;
+    color: white !important;
+    padding: 5px !important;
+    border: none !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.a-go-back button:hover {
+    background-color: #0d95e8 !important;
+}
+
+.a-go-back button img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
 }
 
 /* Media query for responsiveness */

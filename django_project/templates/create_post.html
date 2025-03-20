@@ -1,18 +1,31 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+{% extends "layout.html" %}
 
-<h1>Write a post!</h1>
+{% block extrahead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+{% endblock %}
 
-{% for message in messages %}
-{{ message }}
-{% endfor %}
+{% block content %}
+    <h1>Write a post!</h1>
 
-<form method="POST" action="create_post">
-    {% csrf_token %}
-    <input type="text" name="title">
-    <input type="text", name="content">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    
+    <div class="div-form">
+        <a class="a-go-back" href="{% url 'index' %}">
+            <button>
+                <img src="{% static 'assets/img/go_back_arrow.png' %}" alt="">
+            </button>
+        </a>
 
-    <button type="submit">Post!</button>
-</form>
+        <form method="POST" action="create-post">
+            {% csrf_token %}
+            <input class="input-title" type="text" name="title">
+            <textarea class="textarea-content" type="text", name="content"></textarea>
+    
+            <button type="submit">Post!</button>
+        </form>
+    </div>
 
-<a href="{% url 'index' %}"><button>Cancel</button></a>
+{% endblock %}
