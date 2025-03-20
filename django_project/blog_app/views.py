@@ -100,6 +100,20 @@ def user_profile(request):
     return render(request, 'user_profile.html', context)
 
 @login_required(login_url='login')
+def user_page(request, user_id):
+    if request.method == 'GET':
+        user_found = User.objects.filter(id=user_id).first()
+        posts = Post.objects.filter(author=user_found)
+        post_count = posts.count()
+        
+        context = {'user_found': user_found, 'posts': posts, 'post_count': post_count}
+
+        return render(request, 'user_page.html', context)
+    
+    else:
+        return render(request, 'user_page.html', {'user_found': None})
+
+@login_required(login_url='login')
 def post_page(request, post_id):
     if request.method == 'GET':
         post = Post.objects.filter(id=post_id).first()

@@ -52,6 +52,10 @@ a {
     margin: 20px 0;
 }
 
+.post-div p, .post-div h1 {
+    transition: .15s;
+}
+
 /* Informações do usuário e data */
 .div-post-user-date {
     display: flex;
@@ -69,6 +73,10 @@ a {
     color: rgb(0, 107, 230)
 }
 
+.p-post-author:hover {
+    color: rgb(175, 219, 255);    
+}
+
 .p-post-date {
     font-style: italic;
 }
@@ -84,4 +92,8 @@ a {
 .p-post-content {
     font-size: 16px;
     color: #444;
+}
+
+.h1-post-title:hover, .p-post-content:hover {
+    color: rgb(100, 100, 100);
 }

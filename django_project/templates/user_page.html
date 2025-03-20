@@ -2,7 +2,7 @@
 
 {% block extrahead %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_page.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -17,8 +17,12 @@
             <img src="{% static 'assets/img/user_default_profile.png' %}" alt="User Profile Picture">
         </div>
         <div class="div-user-info">
-            <p><strong>Username:</strong> {{ user.username }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
+            {% if user_found == None %}
+            <p><strong>Username:</strong> Not Found</p>
+            {% else %}
+            <p><strong>Username:</strong> {{ user_found.username }}</p>
+            {% endif %}
+            <p><strong>Email:</strong> {{ user_found.email }}</p>
             {% if post_count != 1 %}
                 <p><strong>{{ post_count }} Posts</strong></p>
             {% else %}
@@ -28,10 +32,11 @@
     </div>
 
     {% if post_count > 0 %}
-        <h1>Your Posts</h1>
+        <h1>{{ user_found.username }} Posts</h1>
         {% for post in posts %}
             <div class="post-div">
                 <a href="{% url 'post_page' post_id=post.id %}">
+               
                 <div class="div-post-user-date">
                     {% if post.author.username == None %}
                     <p class="p-post-author">Deleted User</p>
@@ -47,5 +52,5 @@
                 </a>
             </div>
         {% endfor %}
-    {% endif%}
+    {% endif %}
 {% endblock %}
