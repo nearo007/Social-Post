@@ -93,8 +93,9 @@ def create_post(request):
 
 @login_required(login_url='login')
 def user_profile(request):
-    posts = Post.objects.all().filter(author=request.user).order_by('-date')
+    posts = Post.objects.all().filter(author=request.user)
     post_count = posts.count()
+    posts = list(reversed(posts))
     
     context = {'posts': posts, 'post_count': post_count}
     return render(request, 'user_profile.html', context)
@@ -103,8 +104,13 @@ def user_profile(request):
 def user_page(request, user_id):
     if request.method == 'GET':
         user_found = User.objects.filter(id=user_id).first()
+
+        if user_found == request.user:
+            return(redirect('user_profile'))
+
         posts = Post.objects.filter(author=user_found)
         post_count = posts.count()
+        posts = list(reversed(posts))
         
         context = {'user_found': user_found, 'posts': posts, 'post_count': post_count}
 
