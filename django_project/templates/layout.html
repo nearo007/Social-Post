@@ -51,7 +51,19 @@
                                 <p class="p-post-author">{{ post.author.username }}</p>
                             </a>
                             {% endif %}
-                            <p class="p-post-date">{{ post.date }}</p>
+
+                            <div class="div-post-date-menu">
+                                <p class="p-post-date">{{ post.date }}</p>
+                               
+                                <button class="button-dots-menu">
+                                    <img class="img-dots-menu" src="{% static 'assets/img/icons/icon_dots_menu.png' %}" alt="dots menu">
+                                </button>
+
+                                <div class="div-dots-menu">
+                                    <a href="{% url 'login' %}"><button>Edit</button></a>
+                                    <a href="{% url 'login' %}"><button>Delete</button></a>
+                                </div>
+                            </div>
                         </div>
                         
                         <a href="{% url 'post_page' post_id=post.id %}">    
@@ -63,5 +75,6 @@
             {% endif %}
         </div>
     </body>
+    <script src="{% static 'js/dots_menu_display_toggle.js' %}" defer></script>
     <script src="{% static 'js/sidebar_display_toggle.js' %}" defer></script>
 </html>

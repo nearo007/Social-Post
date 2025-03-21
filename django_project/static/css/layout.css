@@ -101,3 +101,69 @@ body {
     cursor: pointer;
 
 }
+
+.div-post-date-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    position: relative;
+}
+
+.button-dots-menu {
+    display: flex;
+    background-color: transparent;
+    padding: 2px;
+    margin: 0;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    border: none;
+}
+
+.div-content .button-dots-menu:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.img-dots-menu {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.div-dots-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    width: 150px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(199, 199, 199);
+    border-radius: 5px;
+}
+
+.div-dots-menu a {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.div-dots-menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.div-dots-menu.active {
+    display: flex;
+}

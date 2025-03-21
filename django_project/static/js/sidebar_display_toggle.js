@@ -1,5 +1,5 @@
 const sidebar = document.querySelector(".div-header-sidebar");
-const toggleButton = document.querySelector(".button-user-profile")
+const toggleButton = document.querySelector(".button-user-profile");
 
 toggleButton.addEventListener("click", (event) => {
     sidebar.classList.add("active");
