@@ -11,9 +11,11 @@
     <div class="post-div">
         <div class="div-post-user-date">
             {% if post.author.username == None %}
-            <p class="p-post-author">Deleted User</p>
+                <p class="p-post-author">Deleted User</p>
             {% else %}
-            <p class="p-post-author">{{ post.author.username }}</p>
+                <a href="{% url 'user_page' user_id=post.author.id %}">
+                    <p class="p-post-author">{{ post.author.username }}</p>
+                </a>
             {% endif %}
             <p class="p-post-date">{{ post.date }}</p>
         </div>
