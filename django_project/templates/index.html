@@ -29,7 +29,7 @@
             
             <a href="{% url 'post_page' post_id=post.id %}">    
                 <h1 class="h1-post-title">{{ post.title }}</h1>
-                <p "p-post-content">{{ post.content|truncatewords:40 }}</p>
+                <p "p-post-content">{{ post.content|truncatechars:280 }}</p>
             </a>
         </div>
     {% endfor %}
