@@ -33,24 +33,5 @@
 
     {% if post_count > 0 %}
         <h1>{{ user_found.username }} Posts</h1>
-        {% for post in posts %}
-            <div class="post-div">
-                <a href="{% url 'post_page' post_id=post.id %}">
-               
-                <div class="div-post-user-date">
-                    {% if post.author.username == None %}
-                    <p class="p-post-author">Deleted User</p>
-                    {% else %}
-                    <p class="p-post-author">{{ post.author.username }}</p>
-                    {% endif %}
-                    <p class="p-post-date">{{ post.date }}</p>
-                </div>
-
-                    <h1 class="h1-post-title">{{ post.title }}</h1>
-
-                <p "p-post-content">{{ post.content|truncatewords:20 }}</p>
-                </a>
-            </div>
-        {% endfor %}
     {% endif %}
 {% endblock %}
