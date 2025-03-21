@@ -60,8 +60,13 @@
                                 </button>
 
                                 <div class="div-dots-menu">
-                                    <a href="{% url 'login' %}"><button>Edit</button></a>
-                                    <a href="{% url 'login' %}"><button>Delete</button></a>
+                                    {% if post.author == user %}
+                                        <a href="{% url 'index' %}"><button>Edit</button></a>
+
+                                        <a href="{% url 'delete_post' post_id=post.id %}"><button>Delete</button></a>
+                                    {% else %}
+                                        <a href="{% url 'index' %}"><button>Share</button></a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

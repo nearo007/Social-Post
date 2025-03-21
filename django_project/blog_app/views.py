@@ -81,7 +81,6 @@ def create_post(request):
 
         if title and content:
             Post.objects.create(author=author, title=title, content=content, date=date)
-            messages.info(request, 'Posted!')
             return redirect('index')
 
         else:
@@ -90,6 +89,20 @@ def create_post(request):
     
     else:
         return render(request, 'create_post.html')
+    
+@login_required(login_url='login')
+def delete_post(request, post_id):
+    if request.method == 'GET':
+        post = Post.objects.filter(id=post_id).first()
+        if post.author.id == request.user.id:
+            post.delete()
+            return redirect('index')
+
+        else:
+            return redirect('index')
+        
+    else:
+        return redirect('index')
 
 @login_required(login_url='login')
 def user_profile(request):

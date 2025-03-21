@@ -120,18 +120,21 @@ body {
 /* Informações do usuário e data */
 .div-post-user-date {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     font-size: 14px;
     color: #555;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0px;
-    margin-bottom: 10px;
 }
 
 /* Estilo do autor e data */
 .p-post-author {
     font-weight: bold;
-    color: rgb(0, 107, 230)
+    color: rgb(0, 107, 230);
+    font-size: 18px;
+    margin: 0;
 }
 
 .p-post-author:hover {
@@ -140,6 +143,7 @@ body {
 
 .p-post-date {
     font-style: italic;
+    margin: 0;
 }
 
 /* Estilo do título do post */
