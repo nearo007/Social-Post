@@ -102,6 +102,63 @@ body {
 
 }
 
+/* Container dos posts */
+.post-div {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px rgba(0, 45, 87, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+.post-div p, .post-div h1 {
+    transition: .15s;
+}
+
+/* Informações do usuário e data */
+.div-post-user-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+/* Estilo do autor e data */
+.p-post-author {
+    font-weight: bold;
+    color: rgb(0, 107, 230)
+}
+
+.p-post-author:hover {
+    color: rgb(175, 219, 255);    
+}
+
+.p-post-date {
+    font-style: italic;
+}
+
+/* Estilo do título do post */
+.h1-post-title {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #222;
+}
+
+/* Conteúdo do post */
+.p-post-content {
+    font-size: 16px;
+    color: #444;
+}
+
+.h1-post-title:hover, .p-post-content:hover {
+    color: rgb(100, 100, 100);
+}
+
 .div-post-date-menu {
     display: flex;
     flex-direction: row;

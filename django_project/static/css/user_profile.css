@@ -21,7 +21,7 @@ a {
 }
 
 /* Botões estilizados */
-.div-content button {
+.div-content .button_default {
     background-color: #1DA1F2;
     color: white;
     border: none;
@@ -33,58 +33,13 @@ a {
     margin: 5px;
 }
 
-.div-content button:hover {
+.div-content .button_default:hover {
     background-color: #0d8ce3;
 }
 
 /* Links que contêm botões */
 a {
     text-decoration: none;
-}
-
-/* Container dos posts */
-.post-div {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 5px 5px rgba(0, 45, 87, 0.1);
-    width: 90%;
-    max-width: 600px;
-    margin: 20px 0;
-}
-
-/* Informações do usuário e data */
-.div-post-user-date {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: #555;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-/* Estilo do autor e data */
-.p-post-author {
-    font-weight: bold;
-    color: rgb(0, 107, 230)
-}
-
-.p-post-date {
-    font-style: italic;
-}
-
-/* Estilo do título do post */
-.h1-post-title {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #222;
-}
-
-/* Conteúdo do post */
-.p-post-content {
-    font-size: 16px;
-    color: #444;
 }
 
 /* User Profile Container */
@@ -170,6 +125,8 @@ a {
     padding: 5px;
     border-radius: 50%;
     background-color: #1DA1F2;
+    border: none;
+    cursor: pointer;
 }
 
 .a-go-back button img {
