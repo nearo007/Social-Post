@@ -14,7 +14,11 @@
         {% block header %}
         <div class="div-header">
             <div class="div-header-icon-title">
-                <img class="img-icon-twitter" src="{% static 'assets/img/icons/icon_messenger_logo.png' %}" alt="messenger-logo">
+                {% if user_profile.profile_picture != None %}
+                    <img class="img-user-profile" src="{{ user_profile.profile_picture.url }}" alt="user-default-profile">
+                {% else %}
+                    <img class="img-icon-twitter" src="{% static 'assets/img/icons/icon_messenger_logo.png' %}" alt="messenger-logo">
+                {% endif %}
                 <p class="p-header-title">Messenger</p>
             </div>
             <button class="button-user-profile">
@@ -67,7 +71,7 @@
                                     {% else %}
                                         <a href="{% url 'index' %}"><button>Share</button></a>
                                     {% endif %}
-                                </div>
+                                </div> 
                             </div>
                         </div>
                         
