@@ -3,15 +3,21 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
-from .models import Post
+from .models import Post, UserProfile
 from django.utils import timezone
+from django.core.files import File
+import os
 
 # Create your views here.
 def index(request):
     posts = Post.objects.all()
     posts = list(reversed(posts))
 
-    return render(request, 'index.html', {'posts': posts})
+    user_profile = UserProfile.objects.filter(user=request.user.id)
+
+    context = {'posts': posts, 'user_profile': user_profile}
+
+    return render(request, 'index.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -34,6 +40,18 @@ def register(request):
                 return redirect('register')
             
             User.objects.create_user(username=username, email=email, password=password)
+            
+            user= User.objects.filter(username=username).first()
+            profile_picture_path= os.path.join('static', 'assets', 'img', 'user_default_profile.png')
+            profile_bio='Hello there! I\'m using this app!'
+
+            with open(profile_picture_path, 'rb') as f:
+                profile = UserProfile.objects.create(
+                    user=user,
+                    profile_bio=profile_bio,
+                )
+                profile.profile_picture.save('user_default_profile.png', File(f))
+            
             messages.info(request, 'User was registred sucessfully!')
             return redirect('login')
         
