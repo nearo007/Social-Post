@@ -98,6 +98,10 @@ def create_post(request):
         date = timezone.now()
 
         if title and content:
+            if len(title) > 50:
+                messages.info(request, 'The title must be shorter than 50 characters!')
+                return redirect('create_post')
+            
             Post.objects.create(author=author, title=title, content=content, date=date)
             return redirect('index')
 
@@ -115,6 +119,10 @@ def update_post(request, post_id):
         content = request.POST.get('content').strip()
 
         if title and content:
+            if len(title) > 50:
+                messages.info(request, 'The title must be shorter than 50 characters!')
+                return redirect('update_post', post_id=post_id)
+            
             post = Post.objects.filter(id=post_id).first()
             post.title = title
             post.content = content
