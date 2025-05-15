@@ -109,6 +109,27 @@ def create_post(request):
         return render(request, 'create_post.html')
     
 @login_required(login_url='login')
+def update_post(request, post_id):
+    if request.method == 'POST':
+        title = request.POST.get('title').strip()
+        content = request.POST.get('content').strip()
+
+        if title and content:
+            post = Post.objects.filter(id=post_id).first()
+            post.title = title
+            post.content = content
+            post.edited = True
+            post.save()
+            return redirect('index')
+
+        else:
+            messages.info(request, 'Please fill all the spaces!')
+            return redirect('update_post', post_id=post_id)
+    else:
+        context = {'post_id': post_id, 'post': Post.objects.filter(id=post_id).first()}
+        return render(request, 'update_post.html', context)
+    
+@login_required(login_url='login')
 def delete_post(request, post_id):
     if request.method == 'GET':
         post = Post.objects.filter(id=post_id).first()

@@ -7,8 +7,8 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     date = models.DateField(null=True)
+    edited = models.BooleanField(default=False)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField()
     profile_bio = models.TextField(null=True)

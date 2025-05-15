@@ -47,6 +47,10 @@
             {% if posts %}
                 {% for post in posts %}
                     <div class="post-div">
+
+                        {% if post.edited %}
+                        <p class="p-edited-post">Edited</p>
+                        {% endif %}
                         <div class="div-post-user-date">
                             {% if post.author.username == None %}
                                 <p class="p-post-author">Deleted User</p>
@@ -55,7 +59,7 @@
                                 <p class="p-post-author">{{ post.author.username }}</p>
                             </a>
                             {% endif %}
-
+                            
                             <div class="div-post-date-menu">
                                 <p class="p-post-date">{{ post.date }}</p>
                                
@@ -65,7 +69,7 @@
 
                                 <div class="div-dots-menu">
                                     {% if post.author == user %}
-                                        <a href="{% url 'index' %}"><button>Edit</button></a>
+                                        <a href="{% url 'update_post' post_id=post.id %}"><button>Edit</button></a>
 
                                         <a href="{% url 'delete_post' post_id=post.id %}"><button>Delete</button></a>
                                     {% else %}
