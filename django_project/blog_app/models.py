@@ -11,5 +11,4 @@ class Post(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField()
     profile_bio = models.TextField(null=True)
