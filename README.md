@@ -1,24 +1,107 @@
 # Blog App
 
-Este é um sistema simples de blog desenvolvido com Django, permitindo que usuários criem contas, façam login, publiquem posts e visualizem perfis de outros usuários.
+Este é um projeto de blog simples desenvolvido com **Django**. Os usuários podem se cadastrar, fazer login, criar postagens, editá-las, excluí-las e visualizar perfis de outros usuários.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
-- **Página Inicial (`index`)**: Exibe todos os posts em ordem reversa (do mais recente para o mais antigo).
-- **Registro (`register`)**: Permite que novos usuários se cadastrem, validando se o nome de usuário e o e-mail já estão em uso e se as senhas coincidem.
-- **Login (`login`)**: Permite que os usuários façam login, autenticando suas credenciais e redirecionando para a página inicial.
-- **Logout (`logout`)**: Faz o logout do usuário e o redireciona para a página inicial.
-- **Criar Post (`create_post`)**: Permite que usuários autenticados criem posts, exigindo título e conteúdo.
-- **Perfil do Usuário (`user_profile`)**: Mostra os posts do usuário logado e a contagem total de seus posts.
-- **Página de Usuário (`user_page`)**: Exibe os posts de um usuário específico, desde que ele exista. Se for o próprio usuário logado, redireciona para o perfil.
-- **Página do Post (`post_page`)**: Exibe um post específico baseado no seu ID.
+### 🏠 Página Inicial (`/`)
+- Exibe todos os posts publicados.
+- Os posts são mostrados em ordem cronológica reversa (mais recentes primeiro).
+- Se o usuário estiver logado, seu perfil é carregado junto.
 
-O sistema implementa autenticação para garantir que apenas usuários logados possam criar posts ou visualizar perfis.
+---
 
-## Tecnologias Utilizadas
-- **Django**: Framework principal para o desenvolvimento do back-end.
-- **SQLite**: Banco de dados utilizado por padrão.
-- **HTML, CSS**: Para a estrutura e estilização das páginas.
+### 🧾 Registro de Usuário (`/register`)
+- Permite que novos usuários se registrem fornecendo:
+  - Nome de usuário
+  - E-mail
+  - Senha (com confirmação)
+- Valida:
+  - Unicidade do nome de usuário e e-mail
+  - Correspondência das senhas
+- Cria um perfil com imagem e biografia padrão.
+
+---
+
+### 🔐 Autenticação
+#### Login (`/login`)
+- Autentica usuários com nome de usuário e senha.
+- Redireciona para a página inicial após login bem-sucedido.
+- Exibe mensagens em caso de falhas.
+
+#### Logout (`/logout`)
+- Finaliza a sessão do usuário.
+
+---
+
+### ✍️ Criar Post (`/create_post`)
+- Apenas usuários autenticados podem criar posts.
+- Valida:
+  - Campos obrigatórios: título (máx. 50 caracteres) e conteúdo.
+- Armazena a data de criação automaticamente.
+
+---
+
+### 🛠️ Editar Post (`/update_post/<post_id>`)
+- Permite ao autor atualizar o título e o conteúdo do post.
+- Marca o post como editado.
+- Verifica se o título respeita o limite de 50 caracteres.
+
+---
+
+### ❌ Deletar Post (`/delete_post/<post_id>`)
+- Apenas o autor do post pode deletá-lo.
+- Após a exclusão, o usuário é redirecionado à página inicial.
+
+---
+
+### 👤 Perfil do Usuário (`/profile`)
+- Exibe os posts criados pelo usuário autenticado.
+- Mostra o número total de posts.
+
+---
+
+### 🔍 Página de Usuário (`/user/<user_id>`)
+- Exibe o perfil de qualquer outro usuário da plataforma.
+- Caso o usuário tente acessar seu próprio perfil por essa rota, será redirecionado para `/profile`.
+- Mostra os posts e o número total de publicações desse usuário.
+
+---
+
+### 📄 Página de Postagem (`/post/<post_id>`)
+- Exibe os detalhes completos de um único post.
+
+---
+
+## 🧱 Estrutura Padrão
+- Autenticação usando `django.contrib.auth`
+- Proteção de rotas com `@login_required`
+- Upload automático de imagem de perfil padrão
+- Uso de mensagens (`messages`) para feedback ao usuário
+- Organização de templates por páginas funcionais (`index.html`, `register.html`, etc.)
+
+---
+
+## 📦 Modelos Usados
+- `User` (do Django)
+- `Post` (modelo customizado de postagens)
+- `UserProfile` (perfil estendido do usuário)
+
+---
+
+## 📂 Pastas e Arquivos Importantes
+- `views.py`: lógica principal das rotas e funcionalidades
+- `models.py`: definição dos modelos `Post` e `UserProfile`
+- `templates/`: arquivos HTML para as views
+- `static/assets/img/user_default_profile.png`: imagem padrão de perfil
+
+---
+
+## ✅ Requisitos
+- Python 3.x
+- Django 4.x ou superior
+
+---
 
 ## Tela Inicial
 
