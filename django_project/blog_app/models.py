@@ -7,3 +7,4 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     date = models.DateField(null=True)
+    edited = models.BooleanField(default=False)

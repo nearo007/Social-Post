@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block extrahead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Edit post!</h1>
+
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    
+    <div class="div-form">
+        <a class="a-go-back" href="{% url 'index' %}">
+            <button>
+                <img src="{% static 'assets/img/icons/icon_go_back_arrow.png' %}" alt="">
+            </button>
+        </a>
+
+        <form method="POST" action="{% url 'update_post' post_id=post.id %}">
+            {% csrf_token %}
+            <input class="input-title" type="text" name="title" value="{{ post.title }}">
+            <textarea class="textarea-content" type="text", name="content">{{ post.content }}</textarea>
+    
+            <button class="button-default" type="submit">Edit!</button>
+        </form>
+    </div>
+
+{% endblock %}
