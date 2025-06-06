@@ -2,16 +2,16 @@
 
 Este é um projeto de blog simples desenvolvido com **Django**. Os usuários podem se cadastrar, fazer login, criar postagens, editá-las, excluí-las e visualizar perfis de outros usuários.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-### 🏠 Página Inicial (`/`)
+### Página Inicial (`/`)
 - Exibe todos os posts publicados.
 - Os posts são mostrados em ordem cronológica reversa (mais recentes primeiro).
 - Se o usuário estiver logado, seu perfil é carregado junto.
 
 ---
 
-### 🧾 Registro de Usuário (`/register`)
+### Registro de Usuário (`/register`)
 - Permite que novos usuários se registrem fornecendo:
   - Nome de usuário
   - E-mail
@@ -23,7 +23,7 @@ Este é um projeto de blog simples desenvolvido com **Django**. Os usuários pod
 
 ---
 
-### 🔐 Autenticação
+### Autenticação
 #### Login (`/login`)
 - Autentica usuários com nome de usuário e senha.
 - Redireciona para a página inicial após login bem-sucedido.
@@ -34,7 +34,7 @@ Este é um projeto de blog simples desenvolvido com **Django**. Os usuários pod
 
 ---
 
-### ✍️ Criar Post (`/create_post`)
+### Criar Post (`/create_post`)
 - Apenas usuários autenticados podem criar posts.
 - Valida:
   - Campos obrigatórios: título (máx. 50 caracteres) e conteúdo.
@@ -42,38 +42,38 @@ Este é um projeto de blog simples desenvolvido com **Django**. Os usuários pod
 
 ---
 
-### 🛠️ Editar Post (`/update_post/<post_id>`)
+### Editar Post (`/update_post/<post_id>`)
 - Permite ao autor atualizar o título e o conteúdo do post.
 - Marca o post como editado.
 - Verifica se o título respeita o limite de 50 caracteres.
 
 ---
 
-### ❌ Deletar Post (`/delete_post/<post_id>`)
+### Deletar Post (`/delete_post/<post_id>`)
 - Apenas o autor do post pode deletá-lo.
 - Após a exclusão, o usuário é redirecionado à página inicial.
 
 ---
 
-### 👤 Perfil do Usuário (`/profile`)
+### Perfil do Usuário (`/profile`)
 - Exibe os posts criados pelo usuário autenticado.
 - Mostra o número total de posts.
 
 ---
 
-### 🔍 Página de Usuário (`/user/<user_id>`)
+### Página de Usuário (`/user/<user_id>`)
 - Exibe o perfil de qualquer outro usuário da plataforma.
 - Caso o usuário tente acessar seu próprio perfil por essa rota, será redirecionado para `/profile`.
 - Mostra os posts e o número total de publicações desse usuário.
 
 ---
 
-### 📄 Página de Postagem (`/post/<post_id>`)
+### Página de Postagem (`/post/<post_id>`)
 - Exibe os detalhes completos de um único post.
 
 ---
 
-## 🧱 Estrutura Padrão
+## Estrutura Padrão
 - Autenticação usando `django.contrib.auth`
 - Proteção de rotas com `@login_required`
 - Upload automático de imagem de perfil padrão
@@ -82,14 +82,14 @@ Este é um projeto de blog simples desenvolvido com **Django**. Os usuários pod
 
 ---
 
-## 📦 Modelos Usados
+## Modelos Usados
 - `User` (do Django)
 - `Post` (modelo customizado de postagens)
 - `UserProfile` (perfil estendido do usuário)
 
 ---
 
-## 📂 Pastas e Arquivos Importantes
+## Pastas e Arquivos Importantes
 - `views.py`: lógica principal das rotas e funcionalidades
 - `models.py`: definição dos modelos `Post` e `UserProfile`
 - `templates/`: arquivos HTML para as views
@@ -97,7 +97,7 @@ Este é um projeto de blog simples desenvolvido com **Django**. Os usuários pod
 
 ---
 
-## ✅ Requisitos
+## Requisitos
 - Python 3.x
 - Django 4.x ou superior
 
